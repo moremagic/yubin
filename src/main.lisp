@@ -5,7 +5,7 @@
 (in-package #:yubin)
 
 (defun get-place (zipcode) ;
-  (let* ((url (quri:make-uri :defalts "http://zipcloud.ibsnet.co.jp/api/search"
+  (let* ((url (quri:make-uri :defaults "http://zipcloud.ibsnet.co.jp/api/search"
                              :query `(("zipcode" . ,zipcode)))) ; QueryでURLを作る
          (response (parse (dex:get url)))                       ; HTTPでリクエストを行う
          (result (first (getf response :|results|))))
