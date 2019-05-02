@@ -14,10 +14,10 @@
                      (getf result :|address1|)
                      (getf result :|address2|)
                      (getf result :|address3|))
-        (error format nil "~A: ~S (code=~A)"
+        (error (format nil "~A: ~S (code=~A)"
                (getf response :|message|)
                zipcode
-               (getf response :|status|)))))
+               (getf response :|status|))))))
 
 
 ;; blah blah blah.
