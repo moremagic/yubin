@@ -5,19 +5,19 @@ exec ros -Q -- $0 "$@"
 |#
 (progn ;;init forms
   (ros:ensure-asdf)
-  #+quicklisp(ql:quickload '() :silent t)
+  #+quicklisp(ql:quickload '(:yubin) :silent t)
   )
 
 (defpackage :ros.script.yubin.3765741781
   (:use :cl))
 (in-package :ros.script.yubin.3765741781)
 
-(defun main (&rest argv)
+(defun main (zipcode &rest argv)
   (declare (ignorable argv))
   (handler-case
     (format t "~&~A~%" (yubin:get-place zipcode))
     (error (e)
-           (format *standard-output* "~Error: ~A~%" e)
+           (format *standard-output* "~&Error: ~A~%" e)
            (uiop:quit -1))))
 
 ;;; vim: set ft=lisp lisp:
